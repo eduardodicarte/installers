@@ -14,7 +14,7 @@ class PuppetInst:
 		self.do_install()
 
 	def install_repo(self):
-		subprocess.call("yum install -y " + self.yumrepo, shell = True)
+		#subprocess.call("yum install -y " + self.yumrepo, shell = True)
 		subprocess.call("rpm -Uvh " + self.puppetrep, shell = True)
 
 	def do_install(self):

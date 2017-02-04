@@ -4,7 +4,7 @@
 import subprocess
 
 class PuppetInst:
-	puppetrep = "https://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm"	
+	puppetrep = "http://yum.puppetlabs.com/el/7/PC1/x86_64/puppetlabs-release-pc1-0.9.2-1.el7.noarch.rpm"	
 	yumrepo   = "epel-release"	
 	
 	codesucess = 0
@@ -14,7 +14,7 @@ class PuppetInst:
 		self.do_install()
 
 	def install_repo(self):
-		subprocess.call("yum install " + self.yumrepo, shell = True)
+		subprocess.call("yum install -y " + self.yumrepo, shell = True)
 		subprocess.call("rpm -Uvh " + self.puppetrep, shell = True)
 
 	def do_install(self):

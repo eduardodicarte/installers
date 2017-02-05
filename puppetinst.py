@@ -30,8 +30,8 @@ class PuppetInst:
 
 
 if __name__ == "__main__":
-	#try:
-	PuppetInst()
-	#except:
-	#print "Ocorreu o erro na execucao da instalacao. Operacao mal sucedida."
+	try:
+		PuppetInst()
+	except:
+		print "Ocorreu o erro na execucao da instalacao. Operacao mal sucedida."
 

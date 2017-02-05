@@ -10,8 +10,11 @@ class PuppetInst:
 	codesuccess = 0
    
 	def __init__(self):
-		self.install_repo()
-		self.do_install()
+		if subprocess.call("which puppet", shell = True) != self.codesuccess:
+			self.install_repo()
+			self.do_install()
+		else:
+			print "O puppet ja esta instalado."
 
 	def install_repo(self):
 		subprocess.call("yum install -y " + self.yumrepo, shell = True)
@@ -24,12 +27,10 @@ class PuppetInst:
 			subprocess.call('echo "export PATH=/opt/puppetlabs/bin:$PATH" > /etc/profile.d/puppet_path.sh',shell = True)
 			subprocess.call("source /etc/profile.d/puppet_path.sh",shell = True)
 
-			if subprocess.call("which puppet", shell = True) == self.codesuccess:
-				print "Instacao realizada com sucesso."
-			else:
-				print "Ocorreu um erro na instalacao. Contate o desenvolvedor do programa."
-		else:
-			print "O puppet ja esta instalado. Nenhuma operacao sera realizada."
+			#if subprocess.call("which puppet", shell = True) == self.codesuccess:
+			#	print "Instacao realizada com sucesso."
+			#else:
+			#	print "Ocorreu um erro na instalacao. Contate o desenvolvedor do programa."
 
 
 if __name__ == "__main__":

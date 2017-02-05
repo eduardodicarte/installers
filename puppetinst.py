@@ -22,7 +22,7 @@ class PuppetInst:
 			subprocess.call("yum install puppet -y --nogpgcheck", shell = True)
 
 			subprocess.call('echo "export PATH=/opt/puppetlabs/bin:$PATH" > /etc/profile.d/puppet_path.sh',shell = True)
-			subprocess.call("source /etc/profile.d/puppet_path.sh")
+			subprocess.call("source /etc/profile.d/puppet_path.sh",shell = True)
 
 			if subprocess.call("which puppet", shell = True) == self.codesuccess:
 				print "Instacao realizada com sucesso."
